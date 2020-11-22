@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataQLSV">
+  <DataContextMoniker Name="/DataQLSVDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c6c65a49-019e-425a-b9c0-2778e9a22bb7" absoluteBounds="0.75, 1.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DataQLSVDataContext/Lop" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e4d6a1b7-4962-4a45-bdb5-e81cfefdf69a" absoluteBounds="0.765, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7ca020fc-c867-4e22-b664-89e0d6bae33c" absoluteBounds="3.5, 0.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataQLSVDataContext/SinhVien" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3cc77f7b-b062-475f-a6c2-20b3d9b83904" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.81814697265625); (3.5 : 1.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataQLSVDataContext/Lop/Lop_SinhVien" />
+      <nodes>
+        <classShapeMoniker Id="c6c65a49-019e-425a-b9c0-2778e9a22bb7" />
+        <classShapeMoniker Id="7ca020fc-c867-4e22-b664-89e0d6bae33c" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

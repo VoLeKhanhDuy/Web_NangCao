@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HienThi_DSSP">
+        <s:complexType />
+      </s:element>
+      <s:element name="HienThi_DSSPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HienThi_DSSPResult" type="tns:ArrayOfSANPHAM" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSANPHAM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SANPHAM" nillable="true" type="tns:SANPHAM" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SANPHAM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MaSP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TenSP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SoLuong" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DonViTinh" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DonGia" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaNCC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaLH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CHITIETDATHANGs" type="tns:ArrayOfCHITIETDATHANG" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCHITIETDATHANG">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CHITIETDATHANG" nillable="true" type="tns:CHITIETDATHANG" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CHITIETDATHANG">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SoDDH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaSP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GiaBan" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="SoLuong" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MucGiamGia" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HienThi_DSNCC">
+        <s:complexType />
+      </s:element>
+      <s:element name="HienThi_DSNCCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HienThi_DSNCCResult" type="tns:ArrayOfNHACUNGCAP" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNHACUNGCAP">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NHACUNGCAP" nillable="true" type="tns:NHACUNGCAP" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NHACUNGCAP">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MaNCC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TenNCC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DiaChi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DienThoai" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SANPHAMs" type="tns:ArrayOfSANPHAM" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HienThi_DSNV">
+        <s:complexType />
+      </s:element>
+      <s:element name="HienThi_DSNVResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HienThi_DSNVResult" type="tns:ArrayOfNHANVIEN" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNHANVIEN">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NHANVIEN" nillable="true" type="tns:NHANVIEN" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NHANVIEN">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MaNV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ho" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ten" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GioiTinh" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NgaySinh" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DiaChi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DienThoai" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LuongCB" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="PhuCap" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="DONDATHANGs" type="tns:ArrayOfDONDATHANG" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDONDATHANG">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DONDATHANG" nillable="true" type="tns:DONDATHANG" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DONDATHANG">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SoDDH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaKH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaNV" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NgayDat" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CHITIETDATHANGs" type="tns:ArrayOfCHITIETDATHANG" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HienThi_DSDH">
+        <s:complexType />
+      </s:element>
+      <s:element name="HienThi_DSDHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HienThi_DSDHResult" type="tns:ArrayOfDONDATHANG" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HienThi_TTSP">
+        <s:complexType />
+      </s:element>
+      <s:element name="HienThi_TTSPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HienThi_TTSPResult" type="tns:ArrayOfBangSanPham" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBangSanPham">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BangSanPham" nillable="true" type="tns:BangSanPham" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BangSanPham">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MaSP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TenSP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DonViTinh" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SoLuong" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DonGia" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaSP_LonHon100000" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SoLuong_LonHon50" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HienThi_TTNV">
+        <s:complexType />
+      </s:element>
+      <s:element name="HienThi_TTNVResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HienThi_TTNVResult" type="tns:ArrayOfBangNhanVien" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBangNhanVien">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BangNhanVien" nillable="true" type="tns:BangNhanVien" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BangNhanVien">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Ho" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ten" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DiaChi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NamSinh" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HienThi_TTNCC">
+        <s:complexType />
+      </s:element>
+      <s:element name="HienThi_TTNCCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HienThi_TTNCCResult" type="tns:ArrayOfBangNhaCungCap" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBangNhaCungCap">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BangNhaCungCap" nillable="true" type="tns:BangNhaCungCap" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BangNhaCungCap">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DiaChiNCC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DienThoai" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HienThi_MaTenSP">
+        <s:complexType />
+      </s:element>
+      <s:element name="HienThi_MaTenSPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HienThi_MaTenSPResult" type="tns:ArrayOfBangSanPham" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HienThi_SP_NCC">
+        <s:complexType />
+      </s:element>
+      <s:element name="HienThi_SP_NCCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HienThi_SP_NCCResult" type="tns:ArrayOfBangSP_BangNCC" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBangSP_BangNCC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BangSP_BangNCC" nillable="true" type="tns:BangSP_BangNCC" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BangSP_BangNCC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MaSP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TenSP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TenNCC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaSP_VietTienCC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TenSP_VietTienCC" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HienThi_SP_NCC_VietTien">
+        <s:complexType />
+      </s:element>
+      <s:element name="HienThi_SP_NCC_VietTienResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HienThi_SP_NCC_VietTienResult" type="tns:ArrayOfBangSP_BangNCC" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HienThi_SP_NNC_DC">
+        <s:complexType />
+      </s:element>
+      <s:element name="HienThi_SP_NNC_DCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HienThi_SP_NNC_DCResult" type="tns:ArrayOfBangSP_BangNCC_BangLH" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBangSP_BangNCC_BangLH">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BangSP_BangNCC_BangLH" nillable="true" type="tns:BangSP_BangNCC_BangLH" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BangSP_BangNCC_BangLH">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TenSanPham" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoaiSP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CongTyCC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DiaChiCC" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HienThi_KH_SP">
+        <s:complexType />
+      </s:element>
+      <s:element name="HienThi_KH_SPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HienThi_KH_SPResult" type="tns:ArrayOfBangKH_BangSP" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBangKH_BangSP">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BangKH_BangSP" nillable="true" type="tns:BangKH_BangSP" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BangKH_BangSP">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="HoKH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TenKH" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HienThi_KH_NV">
+        <s:complexType />
+      </s:element>
+      <s:element name="HienThi_KH_NVResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HienThi_KH_NVResult" type="tns:ArrayOfBangDDH_BangNV" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBangDDH_BangNV">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BangDDH_BangNV" nillable="true" type="tns:BangDDH_BangNV" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BangDDH_BangNV">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TenKhachHangDat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NhanVienLap" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SapTang_NV_Ten">
+        <s:complexType />
+      </s:element>
+      <s:element name="SapTang_NV_TenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SapTang_NV_TenResult" type="tns:ArrayOfNHANVIEN" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SapGiam_NVTV_Ho">
+        <s:complexType />
+      </s:element>
+      <s:element name="SapGiam_NVTV_HoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SapGiam_NVTV_HoResult" type="tns:ArrayOfNHANVIEN" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SapGiam_NVTV_Ten">
+        <s:complexType />
+      </s:element>
+      <s:element name="SapGiam_NVTV_TenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SapGiam_NVTV_TenResult" type="tns:ArrayOfNHANVIEN" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SapGiam_SP_DonGiaDuoi10000">
+        <s:complexType />
+      </s:element>
+      <s:element name="SapGiam_SP_DonGiaDuoi10000Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SapGiam_SP_DonGiaDuoi10000Result" type="tns:ArrayOfSANPHAM" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_DSSPSoapIn">
+    <wsdl:part name="parameters" element="tns:HienThi_DSSP" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_DSSPSoapOut">
+    <wsdl:part name="parameters" element="tns:HienThi_DSSPResponse" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_DSNCCSoapIn">
+    <wsdl:part name="parameters" element="tns:HienThi_DSNCC" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_DSNCCSoapOut">
+    <wsdl:part name="parameters" element="tns:HienThi_DSNCCResponse" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_DSNVSoapIn">
+    <wsdl:part name="parameters" element="tns:HienThi_DSNV" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_DSNVSoapOut">
+    <wsdl:part name="parameters" element="tns:HienThi_DSNVResponse" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_DSDHSoapIn">
+    <wsdl:part name="parameters" element="tns:HienThi_DSDH" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_DSDHSoapOut">
+    <wsdl:part name="parameters" element="tns:HienThi_DSDHResponse" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_TTSPSoapIn">
+    <wsdl:part name="parameters" element="tns:HienThi_TTSP" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_TTSPSoapOut">
+    <wsdl:part name="parameters" element="tns:HienThi_TTSPResponse" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_TTNVSoapIn">
+    <wsdl:part name="parameters" element="tns:HienThi_TTNV" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_TTNVSoapOut">
+    <wsdl:part name="parameters" element="tns:HienThi_TTNVResponse" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_TTNCCSoapIn">
+    <wsdl:part name="parameters" element="tns:HienThi_TTNCC" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_TTNCCSoapOut">
+    <wsdl:part name="parameters" element="tns:HienThi_TTNCCResponse" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_MaTenSPSoapIn">
+    <wsdl:part name="parameters" element="tns:HienThi_MaTenSP" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_MaTenSPSoapOut">
+    <wsdl:part name="parameters" element="tns:HienThi_MaTenSPResponse" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_SP_NCCSoapIn">
+    <wsdl:part name="parameters" element="tns:HienThi_SP_NCC" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_SP_NCCSoapOut">
+    <wsdl:part name="parameters" element="tns:HienThi_SP_NCCResponse" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_SP_NCC_VietTienSoapIn">
+    <wsdl:part name="parameters" element="tns:HienThi_SP_NCC_VietTien" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_SP_NCC_VietTienSoapOut">
+    <wsdl:part name="parameters" element="tns:HienThi_SP_NCC_VietTienResponse" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_SP_NNC_DCSoapIn">
+    <wsdl:part name="parameters" element="tns:HienThi_SP_NNC_DC" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_SP_NNC_DCSoapOut">
+    <wsdl:part name="parameters" element="tns:HienThi_SP_NNC_DCResponse" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_KH_SPSoapIn">
+    <wsdl:part name="parameters" element="tns:HienThi_KH_SP" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_KH_SPSoapOut">
+    <wsdl:part name="parameters" element="tns:HienThi_KH_SPResponse" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_KH_NVSoapIn">
+    <wsdl:part name="parameters" element="tns:HienThi_KH_NV" />
+  </wsdl:message>
+  <wsdl:message name="HienThi_KH_NVSoapOut">
+    <wsdl:part name="parameters" element="tns:HienThi_KH_NVResponse" />
+  </wsdl:message>
+  <wsdl:message name="SapTang_NV_TenSoapIn">
+    <wsdl:part name="parameters" element="tns:SapTang_NV_Ten" />
+  </wsdl:message>
+  <wsdl:message name="SapTang_NV_TenSoapOut">
+    <wsdl:part name="parameters" element="tns:SapTang_NV_TenResponse" />
+  </wsdl:message>
+  <wsdl:message name="SapGiam_NVTV_HoSoapIn">
+    <wsdl:part name="parameters" element="tns:SapGiam_NVTV_Ho" />
+  </wsdl:message>
+  <wsdl:message name="SapGiam_NVTV_HoSoapOut">
+    <wsdl:part name="parameters" element="tns:SapGiam_NVTV_HoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SapGiam_NVTV_TenSoapIn">
+    <wsdl:part name="parameters" element="tns:SapGiam_NVTV_Ten" />
+  </wsdl:message>
+  <wsdl:message name="SapGiam_NVTV_TenSoapOut">
+    <wsdl:part name="parameters" element="tns:SapGiam_NVTV_TenResponse" />
+  </wsdl:message>
+  <wsdl:message name="SapGiam_SP_DonGiaDuoi10000SoapIn">
+    <wsdl:part name="parameters" element="tns:SapGiam_SP_DonGiaDuoi10000" />
+  </wsdl:message>
+  <wsdl:message name="SapGiam_SP_DonGiaDuoi10000SoapOut">
+    <wsdl:part name="parameters" element="tns:SapGiam_SP_DonGiaDuoi10000Response" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_DSSP">
+      <wsdl:input message="tns:HienThi_DSSPSoapIn" />
+      <wsdl:output message="tns:HienThi_DSSPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_DSNCC">
+      <wsdl:input message="tns:HienThi_DSNCCSoapIn" />
+      <wsdl:output message="tns:HienThi_DSNCCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_DSNV">
+      <wsdl:input message="tns:HienThi_DSNVSoapIn" />
+      <wsdl:output message="tns:HienThi_DSNVSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_DSDH">
+      <wsdl:input message="tns:HienThi_DSDHSoapIn" />
+      <wsdl:output message="tns:HienThi_DSDHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_TTSP">
+      <wsdl:input message="tns:HienThi_TTSPSoapIn" />
+      <wsdl:output message="tns:HienThi_TTSPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_TTNV">
+      <wsdl:input message="tns:HienThi_TTNVSoapIn" />
+      <wsdl:output message="tns:HienThi_TTNVSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_TTNCC">
+      <wsdl:input message="tns:HienThi_TTNCCSoapIn" />
+      <wsdl:output message="tns:HienThi_TTNCCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_MaTenSP">
+      <wsdl:input message="tns:HienThi_MaTenSPSoapIn" />
+      <wsdl:output message="tns:HienThi_MaTenSPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_SP_NCC">
+      <wsdl:input message="tns:HienThi_SP_NCCSoapIn" />
+      <wsdl:output message="tns:HienThi_SP_NCCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_SP_NCC_VietTien">
+      <wsdl:input message="tns:HienThi_SP_NCC_VietTienSoapIn" />
+      <wsdl:output message="tns:HienThi_SP_NCC_VietTienSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_SP_NNC_DC">
+      <wsdl:input message="tns:HienThi_SP_NNC_DCSoapIn" />
+      <wsdl:output message="tns:HienThi_SP_NNC_DCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_KH_SP">
+      <wsdl:input message="tns:HienThi_KH_SPSoapIn" />
+      <wsdl:output message="tns:HienThi_KH_SPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_KH_NV">
+      <wsdl:input message="tns:HienThi_KH_NVSoapIn" />
+      <wsdl:output message="tns:HienThi_KH_NVSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SapTang_NV_Ten">
+      <wsdl:input message="tns:SapTang_NV_TenSoapIn" />
+      <wsdl:output message="tns:SapTang_NV_TenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SapGiam_NVTV_Ho">
+      <wsdl:input message="tns:SapGiam_NVTV_HoSoapIn" />
+      <wsdl:output message="tns:SapGiam_NVTV_HoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SapGiam_NVTV_Ten">
+      <wsdl:input message="tns:SapGiam_NVTV_TenSoapIn" />
+      <wsdl:output message="tns:SapGiam_NVTV_TenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SapGiam_SP_DonGiaDuoi10000">
+      <wsdl:input message="tns:SapGiam_SP_DonGiaDuoi10000SoapIn" />
+      <wsdl:output message="tns:SapGiam_SP_DonGiaDuoi10000SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_DSSP">
+      <soap:operation soapAction="http://tempuri.org/HienThi_DSSP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_DSNCC">
+      <soap:operation soapAction="http://tempuri.org/HienThi_DSNCC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_DSNV">
+      <soap:operation soapAction="http://tempuri.org/HienThi_DSNV" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_DSDH">
+      <soap:operation soapAction="http://tempuri.org/HienThi_DSDH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_TTSP">
+      <soap:operation soapAction="http://tempuri.org/HienThi_TTSP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_TTNV">
+      <soap:operation soapAction="http://tempuri.org/HienThi_TTNV" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_TTNCC">
+      <soap:operation soapAction="http://tempuri.org/HienThi_TTNCC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_MaTenSP">
+      <soap:operation soapAction="http://tempuri.org/HienThi_MaTenSP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_SP_NCC">
+      <soap:operation soapAction="http://tempuri.org/HienThi_SP_NCC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_SP_NCC_VietTien">
+      <soap:operation soapAction="http://tempuri.org/HienThi_SP_NCC_VietTien" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_SP_NNC_DC">
+      <soap:operation soapAction="http://tempuri.org/HienThi_SP_NNC_DC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_KH_SP">
+      <soap:operation soapAction="http://tempuri.org/HienThi_KH_SP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_KH_NV">
+      <soap:operation soapAction="http://tempuri.org/HienThi_KH_NV" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SapTang_NV_Ten">
+      <soap:operation soapAction="http://tempuri.org/SapTang_NV_Ten" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SapGiam_NVTV_Ho">
+      <soap:operation soapAction="http://tempuri.org/SapGiam_NVTV_Ho" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SapGiam_NVTV_Ten">
+      <soap:operation soapAction="http://tempuri.org/SapGiam_NVTV_Ten" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SapGiam_SP_DonGiaDuoi10000">
+      <soap:operation soapAction="http://tempuri.org/SapGiam_SP_DonGiaDuoi10000" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_DSSP">
+      <soap12:operation soapAction="http://tempuri.org/HienThi_DSSP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_DSNCC">
+      <soap12:operation soapAction="http://tempuri.org/HienThi_DSNCC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_DSNV">
+      <soap12:operation soapAction="http://tempuri.org/HienThi_DSNV" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_DSDH">
+      <soap12:operation soapAction="http://tempuri.org/HienThi_DSDH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_TTSP">
+      <soap12:operation soapAction="http://tempuri.org/HienThi_TTSP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_TTNV">
+      <soap12:operation soapAction="http://tempuri.org/HienThi_TTNV" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_TTNCC">
+      <soap12:operation soapAction="http://tempuri.org/HienThi_TTNCC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_MaTenSP">
+      <soap12:operation soapAction="http://tempuri.org/HienThi_MaTenSP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_SP_NCC">
+      <soap12:operation soapAction="http://tempuri.org/HienThi_SP_NCC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_SP_NCC_VietTien">
+      <soap12:operation soapAction="http://tempuri.org/HienThi_SP_NCC_VietTien" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_SP_NNC_DC">
+      <soap12:operation soapAction="http://tempuri.org/HienThi_SP_NNC_DC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_KH_SP">
+      <soap12:operation soapAction="http://tempuri.org/HienThi_KH_SP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HienThi_KH_NV">
+      <soap12:operation soapAction="http://tempuri.org/HienThi_KH_NV" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SapTang_NV_Ten">
+      <soap12:operation soapAction="http://tempuri.org/SapTang_NV_Ten" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SapGiam_NVTV_Ho">
+      <soap12:operation soapAction="http://tempuri.org/SapGiam_NVTV_Ho" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SapGiam_NVTV_Ten">
+      <soap12:operation soapAction="http://tempuri.org/SapGiam_NVTV_Ten" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SapGiam_SP_DonGiaDuoi10000">
+      <soap12:operation soapAction="http://tempuri.org/SapGiam_SP_DonGiaDuoi10000" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://localhost:50115/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://localhost:50115/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

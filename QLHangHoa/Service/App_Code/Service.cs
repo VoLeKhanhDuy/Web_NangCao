@@ -61,8 +61,8 @@ public class Service : System.Web.Services.WebService
                          MaSP = sp.MaSP,
                          TenSP = sp.TenSP,
                          DonViTinh = sp.DonViTinh,
-                         SoLuong = sp.SoLuong,
-                         DonGia = sp.DonGia
+                         SoLuong = Int32.Parse(sp.SoLuong.ToString()),
+                         DonGia = Int32.Parse(sp.DonGia.ToString())
                      };
         return result.ToList();
     }
@@ -77,7 +77,7 @@ public class Service : System.Web.Services.WebService
                          Ho = nv.Ho,
                          Ten = nv.Ten,
                          DiaChi = nv.DiaChi,
-                         //NamSinh = nv.NgaySinh
+                         NamSinh = nv.NgaySinh.Value.Year.ToString()
                      };
         return result.ToList();
     }
@@ -105,7 +105,7 @@ public class Service : System.Web.Services.WebService
                      select new BangSanPham
                      {
                          MaSP_LonHon100000 = sp.MaSP,
-                         SoLuong_LonHon50 = sp.SoLuong
+                         SoLuong_LonHon50 = Int32.Parse(sp.SoLuong.ToString())
                      };
         return result.ToList();
     }
@@ -127,7 +127,7 @@ public class Service : System.Web.Services.WebService
 
     [WebMethod]
     // Công ty Việt Tiến đã cung cấp những mặt hàng nào?
-    public List<BangSP_BangNCC> HienThi_SP_NCC()
+    public List<BangSP_BangNCC> HienThi_SP_NCC_VietTien()
     {
         var result = from sp in db.SANPHAMs
                      join ncc in db.NHACUNGCAPs on sp.MaNCC equals ncc.MaNCC
@@ -135,26 +135,28 @@ public class Service : System.Web.Services.WebService
                      select new BangSP_BangNCC
                      {
                          MaSP_VietTienCC = sp.MaSP,
-                         TenSP_VietTienCC = sp.TenSP,
+                         TenSP_VietTienCC = sp.TenSP
                      };
         return result.ToList();
     }
 
-    //[WebMethod]
-    //  Cho biết mỗi sản phẩm thuộc loại sản phẩm nào và do những công ty nào cung cấp và địa chỉ của các công ty đó là gì?
-    //public List<BangSP_BangNCC> HienThi_SP_NCC()
-    //{
-    //    var result = from sp in db.SANPHAMs
-    //                 join ncc in db.NHACUNGCAPs on sp.MaNCC equals ncc.MaNCC
-    //                 where ncc.TenNCC == "Việt Tiến"
-    //                 select new BangSP_BangNCC
-    //                 {
-    //                     MaSP_VietTienCC = sp.MaSP,
-    //                     TenSP_VietTienCC = sp.TenSP,
-    //                 };
-    //    return result.ToList();
-    //}
-    
+    [WebMethod]
+    //Cho biết mỗi sản phẩm thuộc loại sản phẩm nào và do những công ty nào cung cấp và địa chỉ của các công ty đó là gì?
+    public List<BangSP_BangNCC_BangLH> HienThi_SP_NNC_DC()
+    {
+        var result = from sp in db.SANPHAMs
+                     join lh in db.LOAIHANGs on sp.MaLH equals lh.MaLoai
+                     join ncc in db.NHACUNGCAPs on sp.MaNCC equals ncc.MaNCC
+                     select new BangSP_BangNCC_BangLH
+                     {
+                         TenSanPham = sp.TenSP,
+                         LoaiSP = lh.TenLoai,
+                         CongTyCC = ncc.TenNCC,
+                         DiaChiCC = ncc.DiaChi
+                     };
+        return result.ToList();
+    }
+
 
     [WebMethod]
     // Những khách hàng nào đã đặt mua sản phẩm Sữa hộp XYZ của công ty?    public List<BangKH_BangSP> HienThi_KH_SP()
@@ -179,7 +181,7 @@ public class Service : System.Web.Services.WebService
         var result = from kh in db.KHACHHANGs
                      join ddh in db.DONDATHANGs on kh.MaKH equals ddh.MaKH
                      join nv in db.NHANVIENs on ddh.MaNV equals nv.MaNV
-                     where ddh.SoDDH == 1
+                     where ddh.SoDDH == "01"
                      select new BangDDH_BangNV
                      {
                          TenKhachHangDat = kh.Ten,
